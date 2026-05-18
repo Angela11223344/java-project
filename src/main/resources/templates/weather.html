@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>⛅Java Weather App by A Evans⛅</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Weather Icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/weather.css">
+</head>
+<body style="background-image: url('/images/image.png'); background-size: auto;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h1 class="card-title">☀️Weather in <span th:text="${weather.name}">City</span>, <span th:text="${weather.sys.country}">Country </span>☀️</h1>
+                            <span th:classappend="${weatherIcon} + ' weather-icon'"></span>
+                            <div th:if="${weather}">
+                                <p ></p>
+                                <p th:text="'🌡Current Temperature: ' + ${weather.main.temp} + '°C'"></p>
+                                <p th:text="'🌡Feels Like: ' + ${weather.main.feels_like} + '°C'"></p>
+                                <p th:text="'🌡Minimum Temperature: ' + ${weather.main.temp_min} + '°C'"></p>
+                                <p th:text="'🌡Maximum Temperature:' + ${weather.main.temp_max} + '°C'"></p>
+                                <p th:text="'💧Humidity: ' + ${weather.main.humidity} + '%'"></p>
+                                <p th:text="'🌤 Conditions: ' + ${weather.weather[0].description}"></p>
+                                <p th:text="'💨Wind Speed: ' + ${weather.wind.speed}"></p>
+                                <a href="/" class="btn btn-primary btn-block">Back</a>
+                            <div th:if="${error}" class="alert alert-danger mt-3">
+                                <p>Error: <span th:text="${error}"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

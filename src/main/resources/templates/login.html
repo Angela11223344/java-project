@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="">
+<head>
+  <title>⛅Java Weather App by A Evans⛅</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Weather Icons CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body style="background-image: url('/images/image.png'); background-size: auto;">
+<h1>Please Log In</h1>
+<div th:if="${param.error}">
+  Invalid username and password.</div>
+<div th:if="${param.logout}">
+  You have been logged out.</div>
+<form th:action="@{/login}" method="post">
+  <div>
+    <label>
+      <input type="text" name="username" placeholder="Username"/>
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="password" name="password" placeholder="Password"/>
+    </label>
+  </div>
+  <input type="submit" value="Log in" />
+</form>
+</body>
+</html>
